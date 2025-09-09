@@ -33,6 +33,11 @@ mkdir -p $INPUT_DESTINATION_FOLDER
 cd $INPUT_DESTINATION_FOLDER
 if [ "${INPUT_DELETE_DESTINATION}" = "true" ]; then
     git rm -rf .
+
+    # git rm command removes the parent directory as well, so we have to recreate it
+    cd ..
+    mkdir -p $INPUT_DESTINATION_FOLDER
+    cd $INPUT_DESTINATION_FOLDER
 fi
 
 # do the copy
