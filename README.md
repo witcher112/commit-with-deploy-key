@@ -1,17 +1,19 @@
 # Commit with deploy key
 Action to commit a file or directory to another repo using a deploy key.
 
+Forked from https://github.com/leigholiver/commit-with-deploy-key (this repo fixes the `delete_destination` option).
+
 ## Usage
 * Create an SSH key pair to use for the commits
 * Add the public key to your destination repo as a deploy key with write access
 * Add the private key to your source repo as a secret
 * Add this action to your workflow:
 ```yaml
-uses: leigholiver/commit-with-deploy-key@v1.0.4
+uses: witcher112/commit-with-deploy-key@v1.0.5
 with:
   source: build_output
   destination_folder: dist
-  destination_repo: leigholiver/commit-with-deploy-key
+  destination_repo: witcher112/commit-with-deploy-key
   deploy_key: ${{ secrets.DEPLOY_KEY }}
 ```
 
